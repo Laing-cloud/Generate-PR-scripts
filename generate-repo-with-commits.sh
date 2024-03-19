@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-repoName=<<PREFIX>>-$1-$(date +%Y-%m-%d-%H-%M-%S)
+repoName=PREFIX-$1-$(date +%Y-%m-%d-%H-%M-%S)
 commit_wait=20
 
 tmp_dir=$(mktemp -d -t tmp-dir-XXX)
@@ -57,7 +57,7 @@ sleep $commit_wait
 if [ $3 = true ]; then
     cp $tmp_dir/<<path to script>>/build-success.sh ci/scripts/build.sh //successful build sim
 
-  else
+else
     cp $tmp_dir/<<path to script>>/build-fail.sh ci/scripts/build.sh //unsuccessful build sim
 fi
 
